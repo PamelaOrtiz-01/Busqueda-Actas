@@ -72,6 +72,21 @@ def descargas():
     """ Route to display the queued downloads """
     return render_template("descargas.html")
 
+@app.route('/autor')
+def autor():
+    """ Route to display files by author """
+    return render_template("autor.html")
+
+@app.route('/anio')
+def anio():
+    """ Route to display files by year """
+    return render_template("anio.html")
+
+@app.route('/pdf_detalles')
+def pdf_details():
+    """ Route to display PDF details """
+    return render_template("pdf_info.html")
+
 #OJITO AQUÍ
 """CODIGO ANTERIOR DE LA APP, MODIFIQUE EL return render_template_string POR return render_template 
 PARA QUE FUNCIONE CON EL ARCHIVO HTML"""
