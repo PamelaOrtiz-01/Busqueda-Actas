@@ -40,7 +40,27 @@ HTML = """
 </html>
 """
 
-@app.route("/", methods=["GET", "POST"])
+@app.route('/')
+def inicio():
+    """ Route to display the home page and search for the PDfs"""
+    resultados = []
+    consulta = ""
+
+    if request.method == "POST":
+        consulta = request.form["consulta"]
+        indice = cargar_indice()
+        resultados = buscar_documentos(consulta, indice)    
+
+    return render_template(
+        "inicio.html",
+        consulta=consulta,
+        resultados=resultados
+    )
+
+"""CODIGO ANTERIOR DE LA APP, MODIFIQUE EL return render_template_string POR return render_template 
+PARA QUE FUNCIONE CON EL ARCHIVO HTML"""
+
+"""@app.route("/", methods=["GET", "POST"])
 def inicio():
     resultados = []
     consulta = ""
@@ -54,7 +74,7 @@ def inicio():
         HTML,
         consulta=consulta,
         resultados=resultados
-    )
+    )"""
 
 if __name__ == "__main__":
     app.run(debug=True)
