@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Repositorio Digital | UNISON</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fixed_styles.css') }}">
 </head>
 <body>
-<div style="width: 100%; height: 100%; background: var(--Window-Background, white); flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
-    <div style="width: 1534px; height: 1493px; min-width: 320px; min-height: 729.60px; background: #F7F8FA; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
+<div style="width: 100%; min-height: 100vh; background: white; display: block;">
+    <div style="width: 100%; min-height: 100vh; background: #F7F8FA; display: flex; flex-direction: column; ">
         <div style="align-self: stretch; background: var(--Window-Background, white); box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.06); flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
             <div style="align-self: stretch; background: #003F7D; border-bottom: 0.80px rgba(255, 255, 255, 0.12) solid; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
                 <div style="align-self: stretch; flex-direction: column; justify-content: flex-start; align-items: center; display: flex">
-                    <div style="width: 1180px; height: 44px; min-height: 44px; justify-content: space-between; align-items: center; display: inline-flex">
+                    <div style="width: min(1180px, calc(100% - 40px)); height: 44px; min-height: 44px; justify-content: space-between; align-items: center; display: flex;">
                         <div style="justify-content: flex-start; align-items: center; display: flex">
                             <div style="height: 44px; padding-left: 15px; padding-right: 15px; border-left: 0.80px rgba(255, 255, 255, 0.14) solid; border-right: 0.80px rgba(255, 255, 255, 0.14) solid; justify-content: flex-start; align-items: center; display: flex">
                                 <div style="color: rgba(255, 255, 255, 0.78); font-size: 11px; font-family: Montserrat; font-weight: 600; text-transform: uppercase; line-height: 16.50px; letter-spacing: 0.66px; word-wrap: break-word">Inicio</div>
@@ -27,14 +28,14 @@
                 </div>
             </div>
             <div style="align-self: stretch; flex-direction: column; justify-content: flex-start; align-items: center; display: flex">
-                <div style="width: 1180px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
-                    <div style="align-self: stretch; min-height: 104px; padding-top: 8px; padding-bottom: 2px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
+                <div style="width: min(1180px, calc(100% - 40px)); margin: auto; display: flex; flex-direction: column;">
+                    <div style="align-self: stretch; min-height: 104px; padding: 8px 0 2px; display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
                         <img style="width: 80px; height: 80px; position: relative" src="{{ url_for('static', filename='images/logo_unison.png') }}" />
-                        <div style="align-self: stretch; height: 62.80px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
+                        <div style="align-self: center; height: 62.80px; transform: translate( -180px, 5px); flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
                             <div style="align-self: stretch; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
                                 <div style="color: #1D293D; font-size: 32px; font-family: Libertinus Sans; font-weight: 700; line-height: 36.80px; word-wrap: break-word">Facultad Interdisciplinaria de Ingeniería</div>
                             </div>
-                            <div style="width: 980px; height: 26px; padding-top: 5px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
+                            <div style="width: 100%; height: 26px; padding-top: 5px; display: flex; flex-direction: column;">
                                 <div style="color: #667482; font-size: 14px; font-family: Libertinus Sans; font-weight: 700; text-transform: uppercase; line-height: 21px; letter-spacing: 1.40px; word-wrap: break-word">Universidad de Sonora</div>
                             </div>
                         </div>
@@ -63,8 +64,8 @@
             </div>
         </div>
         <div style="align-self: stretch; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
-            <div style="align-self: stretch; height: 498px; position: relative; background: linear-gradient(90deg, rgba(0, 38, 76, 0.94) 0%, rgba(0, 54, 104, 0.78) 42%, rgba(0, 52.31, 100.81, 0.48) 60%, rgba(0, 45, 87, 0.18) 78%); overflow: hidden; background-image: url({{ url_for('static', filename='images/fondo_buscar.jpg') }})">
-                <div style="width: 1180px; height: 510px; left: 177px; top: 0px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
+            <div style="align-self: stretch; height: 498px; position: relative; background-image: linear-gradient(90deg, rgba(0, 38, 76, 0.94) 0%, rgba(0, 54, 104, 0.78) 42%, rgba(0, 52, 100, 0.48) 60%, rgba(0, 45, 87, 0.18) 78%), url('{{ url_for('static', filename='images/fondo_buscar.jpg') }}'); background-size: cover; background-position: center; background-repeat: no-repeat; overflow: hidden;">
+                <div style="width: min(1180px, calc(100% - 40px)); height: 100%; margin: auto; position: relative; display: flex; justify-content: center; align-items: center;">
                     <div style="width: 576px; max-width: 768px; padding-top: 64px; padding-bottom: 64px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
                         <div style="width: 351px; height: 25px; position: relative">
                             <div style="width: 576px; height: 17px; left: 0px; top: 7.90px; position: absolute; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
@@ -73,11 +74,11 @@
                                 <div style="width: 30px; height: 2px; position: relative; background: #FFB13E"></div>
                             </div>
                         </div>
-                        <div style="width: 576px; height: 89px; padding-top: 20px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
-                            <div style="text-align: center; color: var(--Grays-White, white); font-size: 58px; font-family: Libre Baskerville; font-weight: 700; line-height: 62.64px; word-wrap: break-word">Repositorio Digital</div>
+                        <div style="width: 576px; min-height: 89px; box-sizing: border-box; padding-top: 20px; display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-start;">
+                            <div style="width: 100%; text-align: center; color: var(--Grays-White, white); font-size: 58px; font-family: Libre Baskerville; font-weight: 700; line-height: 1.2; word-wrap: break-word;">Repositorio Digital</div>
                         </div>
-                        <div style="width: 576px; max-width: 576px; padding-top: 20px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
-                            <div style="width: 576px; text-align: center; color: var(--Labels-Primary, rgba(255, 255, 255, 0.85)); font-size: 18px; font-family: Montserrat; font-weight: 400; line-height: 28px; word-wrap: break-word">Accede a libros, revistas, bases de datos y recursos académicos de calidad desde un solo lugar.</div>
+                        <div style="width: 576px; max-width: 576px; padding-top: 12px; display: flex; flex-direction: column; justify-content: flex-start; align-items: center;">
+                            <div style="width: 100%; text-align: center; color: var(--Labels-Primary, rgba(255, 255, 255, 0.85)); font-size: 18px; font-family: Montserrat; font-weight: 400; line-height: 28px; word-wrap: break-word;">Accede a libros, revistas, bases de datos y recursos académicos de calidad desde un solo lugar.</div>
                         </div>
                         <div style="width: 576px; max-width: 672px; padding-top: 32px; flex-direction: column; justify-content: flex-start; align-items: center; display: flex">
                             <div style="width: 800px; height: 56px; padding: 6px; background: var(--Grays-White, white); box-shadow: 0px 8px 10px -6px rgba(0, 0, 0, 0.20), 0px 20px 25px -5px rgba(0, 0, 0, 0.20); border-radius: 4px; justify-content: flex-start; align-items: flex-start; display: inline-flex">
