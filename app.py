@@ -57,6 +57,14 @@ def inicio():
         resultados=resultados
     )
 
+#ESTA EL SIGUIENTE CODIGO POR MIENTRAS, FALTA HACERLE AJUSTES
+#ES QUE OCUPO VER COMO SE VE EN EL NAVEGADOR :)
+@app.route('/archivos_disponibles')
+def archivos_disponibles():
+    """ Route to display the available files """
+    return render_template("archivos_disponibles.html")
+
+#OJITO AQUÍ
 """CODIGO ANTERIOR DE LA APP, MODIFIQUE EL return render_template_string POR return render_template 
 PARA QUE FUNCIONE CON EL ARCHIVO HTML"""
 
