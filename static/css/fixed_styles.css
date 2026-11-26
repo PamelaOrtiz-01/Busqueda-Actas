@@ -1718,3 +1718,75 @@ html, body {
 * {
     box-sizing: border-box;
 }
+
+
+/* CONTENEDOR PRINCIPAL DE ARCHIVOS */
+.contenedor-archivos {
+    width: calc(100% - 48px) !important;
+    max-width: 1180px;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+}
+
+/* DISTRIBUCION DE TARJETAS */
+.archivos-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 36px 24px;
+    width: 100%;
+    align-items: start;
+    box-sizing: border-box;
+}
+
+/* Otros dispositivos */
+
+.archivos-grid > div {
+    min-width: 0;
+    width: 100%;
+}
+
+@media (max-width: 1000px) {
+    .archivos-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 750px) {
+    .archivos-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .archivos-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Lo de las páginas */
+.paginacion {
+    width: 100%;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center;
+    gap: 5px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* Menu de ordenar por*/
+.selector-orden {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    color: #29465F;
+}
+
+.selector-orden option {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    color: #29465F;
+    background-color: white;
+}
