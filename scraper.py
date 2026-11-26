@@ -22,10 +22,10 @@ def buscar_pdfs(url):
 
         for enlace in soup.find_all("a", href=True):
 
-            # Obtener la direccion completa del enlace
+            
             enlace_completo = urljoin(url, enlace["href"])
 
-            # Revisar si el enlace termina en PDF
+           
             ruta = urlparse(enlace_completo).path.lower()
 
             if ruta.endswith(".pdf"):
