@@ -5,6 +5,11 @@
 
 /* Fixed style for the website header and footer of the page*/
 
+html,
+body {
+    background-color: #FFFFFF !important;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
