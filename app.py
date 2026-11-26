@@ -57,12 +57,20 @@ def inicio():
         resultados=resultados
     )
 
-#ESTA EL SIGUIENTE CODIGO POR MIENTRAS, FALTA HACERLE AJUSTES
-#ES QUE OCUPO VER COMO SE VE EN EL NAVEGADOR :)
 @app.route('/archivos_disponibles')
 def archivos_disponibles():
-    """ Route to display the available files """
+    """ Route to display the available files in the repository """
     return render_template("archivos_disponibles.html")
+
+@app.route('/guardados')
+def guardados():
+    """ Route to display the bookmarked files """
+    return render_template("guardados.html")
+
+@app.route('/descargas')
+def descargas():
+    """ Route to display the queued downloads """
+    return render_template("descargas.html")
 
 #OJITO AQUÍ
 """CODIGO ANTERIOR DE LA APP, MODIFIQUE EL return render_template_string POR return render_template 
