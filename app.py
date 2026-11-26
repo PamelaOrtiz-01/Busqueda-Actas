@@ -1,5 +1,7 @@
+import datetime
+import os
 
-from flask import Flask, render_template_string, request
+from flask import Flask, redirect, render_template, render_template_string, request, session, url_for
 from buscador import cargar_indice, buscar_documentos
 
 app = Flask(__name__)
