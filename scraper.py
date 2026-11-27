@@ -3,8 +3,17 @@ import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin, urlparse
 import os
+import hashlib
+
 
 CARPETA_PDF = "pdfs"
+
+
+def calcular_hash(contenido):
+    """
+    Calcula el hash SHA-256 del contenido de un PDF.
+    """
+    return hashlib.sha256(contenido).hexdigest()
 
 
 def buscar_pdfs(url):
@@ -22,10 +31,8 @@ def buscar_pdfs(url):
 
         for enlace in soup.find_all("a", href=True):
 
-            
             enlace_completo = urljoin(url, enlace["href"])
 
-           
             ruta = urlparse(enlace_completo).path.lower()
 
             if ruta.endswith(".pdf"):
@@ -41,10 +48,26 @@ def buscar_pdfs(url):
 
 def descargar_pdfs(enlaces):
     """
-    Descarga los documentos PDF encontrados.
+    Descarga documentos PDF y evita duplicados
+    mediante la comparacion de hashes SHA-256.
     """
 
     os.makedirs(CARPETA_PDF, exist_ok=True)
+
+    hashes_existentes = {}
+
+    for nombre_archivo in os.listdir(CARPETA_PDF):
+
+        ruta = os.path.join(CARPETA_PDF, nombre_archivo)
+
+        if os.path.isfile(ruta) and nombre_archivo.lower().endswith(".pdf"):
+
+            with open(ruta, "rb") as archivo:
+                contenido = archivo.read()
+
+            hash_archivo = calcular_hash(contenido)
+
+            hashes_existentes[hash_archivo] = nombre_archivo
 
     for enlace in enlaces:
 
@@ -58,6 +81,17 @@ def descargar_pdfs(enlaces):
                 print("El archivo no es un PDF valido:", enlace)
                 continue
 
+            hash_nuevo = calcular_hash(contenido)
+
+            if hash_nuevo in hashes_existentes:
+
+                print(
+                    "PDF duplicado. Ya existe como:",
+                    hashes_existentes[hash_nuevo]
+                )
+
+                continue
+
             nombre = os.path.basename(urlparse(enlace).path)
 
             if not nombre:
@@ -65,12 +99,23 @@ def descargar_pdfs(enlaces):
 
             ruta = os.path.join(CARPETA_PDF, nombre)
 
+            # Evitar sobrescribir archivos con el mismo nombre
             if os.path.exists(ruta):
-                print("El archivo ya existe:", nombre)
-                continue
+
+                nombre_base, extension = os.path.splitext(nombre)
+                contador = 1
+
+                while os.path.exists(ruta):
+                    nuevo_nombre = f"{nombre_base}_{contador}{extension}"
+                    ruta = os.path.join(CARPETA_PDF, nuevo_nombre)
+                    contador += 1
+
+                nombre = os.path.basename(ruta)
 
             with open(ruta, "wb") as archivo:
                 archivo.write(contenido)
+
+            hashes_existentes[hash_nuevo] = nombre
 
             print("PDF descargado correctamente:", nombre)
 

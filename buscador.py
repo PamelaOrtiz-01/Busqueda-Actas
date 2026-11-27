@@ -1,10 +1,17 @@
 
 import json
 import os
-import difflib
-import re
 
-ARCHIVO_INDICE = "indice.json"
+from similitud import normalizar, evaluar_consulta
+
+
+# Obtener la ubicación de la carpeta del proyecto
+CARPETA_PROYECTO = os.path.dirname(os.path.abspath(__file__))
+
+ARCHIVO_INDICE = os.path.join(CARPETA_PROYECTO, "indice.json")
+
+# Porcentaje minimo para considerar una coincidencia
+UMBRAL_SIMILITUD = 75.0
 
 
 def cargar_indice():
@@ -19,25 +26,33 @@ def cargar_indice():
 def buscar_documentos(consulta, indice):
     resultados = []
 
-    consulta = consulta.lower().strip()
+    consulta_normalizada = normalizar(consulta)
+
+    if not consulta_normalizada:
+        return resultados
 
     for documento in indice:
-        contenido = documento["contenido"]
 
-        if consulta in contenido:
+        contenido = documento.get("contenido", "")
+
+        if not contenido:
+            continue
+
+        contenido_normalizado = normalizar(contenido)
+
+        # Primero se comprueba si existe una coincidencia exacta
+        if consulta_normalizada in contenido_normalizado:
             resultados.append(documento["nombre"])
             continue
 
-        palabras = re.findall(r'\b[a-záéíóúüñ]+\b', contenido)
-
-        coincidencias = difflib.get_close_matches(
+        # Si no existe coincidencia exacta,
+        # se utiliza el algoritmo Levenshtein
+        puntuacion = evaluar_consulta(
             consulta,
-            palabras,
-            n=1,
-            cutoff=0.75
+            contenido
         )
 
-        if coincidencias:
+        if puntuacion >= UMBRAL_SIMILITUD:
             resultados.append(documento["nombre"])
 
     return resultados
@@ -62,6 +77,7 @@ def main():
 
         for documento in resultados:
             print("-", documento)
+
     else:
         print("\nNo se encontraron coincidencias.")
 
