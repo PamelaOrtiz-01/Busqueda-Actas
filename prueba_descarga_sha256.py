@@ -26,7 +26,6 @@ def ejecutar_prueba():
         "https://ejemplo.com/nuevo.pdf": contenido_diferente
     }
 
-    # Guardamos la configuración original
     carpeta_original = scraper.CARPETA_PDF
     get_original = scraper.requests.get
 
@@ -43,7 +42,6 @@ def ejecutar_prueba():
             with open(ruta_original, "wb") as archivo:
                 archivo.write(contenido_original)
 
-            # Simulamos las respuestas de descarga
             def descarga_simulada(url, timeout=30):
                 return RespuestaSimulada(respuestas[url])
 
