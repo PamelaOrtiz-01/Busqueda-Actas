@@ -14,10 +14,13 @@
                 <div style="width: min(1180px, calc(100% - 40px)); height: 44px; min-height: 44px; justify-content: space-between; align-items: center; display: flex;">
                     <div style="justify-content: flex-start; align-items: center; display: flex">
                         <div style="height: 44px; padding-left: 15px; padding-right: 15px; border-left: 0.80px rgba(255, 255, 255, 0.14) solid; border-right: 0.80px rgba(255, 255, 255, 0.14) solid; justify-content: flex-start; align-items: center; display: flex; cursor: pointer;">
-                            <div style="color: rgba(255, 255, 255, 0.78); font-size: 11px; font-family: Montserrat; font-weight: 600; text-transform: uppercase; line-height: 16.50px; letter-spacing: 0.66px; word-wrap: break-word">UNISON</div>
+                            <a href="{{ url_for('inicio') }}" style="color: rgba(255, 255, 255, 0.78); font-size: 11px; font-family: Montserrat; font-weight: 600; text-transform: uppercase; line-height: 16.50px; letter-spacing: 0.66px; word-wrap: break-word; text-decoration: none;">INICIO</a>
                         </div>
                         <div style="height: 44px; padding-left: 15px; padding-right: 15px; border-right: 0.80px rgba(255, 255, 255, 0.14) solid; justify-content: flex-start; align-items: center; display: flex; cursor: pointer;">
-                            <div style="color: rgba(255, 255, 255, 0.78); font-size: 11px; font-family: Montserrat; font-weight: 600; text-transform: uppercase; line-height: 16.50px; letter-spacing: 0.66px; word-wrap: break-word">FACULTAD INTERDISCIPLINARIA DE INGENIERÍA</div>
+                            <a href="https://www.unison.mx/" target="_blank" style="color: rgba(255, 255, 255, 0.78); font-size: 11px; font-family: Montserrat; font-weight: 600; text-transform: uppercase; line-height: 16.50px; letter-spacing: 0.66px; word-wrap: break-word; text-decoration: none;">UNISON</a>
+                        </div>
+                        <div style="height: 44px; padding-left: 15px; padding-right: 15px; border-right: 0.80px rgba(255, 255, 255, 0.14) solid; justify-content: flex-start; align-items: center; display: flex; cursor: pointer;">
+                            <a href="https://fi-ing.unison.mx/" target="_blank" style="color: rgba(255, 255, 255, 0.78); font-size: 11px; font-family: Montserrat; font-weight: 600; text-transform: uppercase; line-height: 16.50px; letter-spacing: 0.66px; word-wrap: break-word; text-decoration: none;">FACULTAD INTERDISCIPLINARIA DE INGENIERÍA</a>
                         </div>
                     </div>
                 </div>
@@ -44,16 +47,13 @@
             <div style="align-self: stretch; flex-direction: column; justify-content: flex-start; align-items: center; display: flex">
                 <div style="width: 1180px; height: 44.50px; justify-content: flex-end; align-items: flex-start; display: inline-flex">
                     <div style="align-self: stretch; padding-left: 12px; padding-right: 12px; padding-top: 14px; padding-bottom: 14px; justify-content: flex-start; align-items: center; gap: 7px; display: flex; cursor: pointer;">
-                        <div style="color: #EF8F18; font-size: 11px; font-family: Montserrat; font-weight: 700; text-transform: uppercase; line-height: 16.50px; letter-spacing: 0.28px; word-wrap: break-word">Inicio</div>
+                        <a href="{{ url_for('archivos_disponibles') }}" style="color: #29394A; font-size: 11px; font-family: Montserrat; font-weight: 700; text-transform: uppercase; line-height: 16.50px; letter-spacing: 0.28px; word-wrap: break-word; text-decoration: none;">Archivos disponibles</a>
                     </div>
                     <div style="align-self: stretch; padding-left: 12px; padding-right: 12px; padding-top: 14px; padding-bottom: 14px; justify-content: flex-start; align-items: center; gap: 7px; display: flex; cursor: pointer;">
-                        <div style="color: #29394A; font-size: 11px; font-family: Montserrat; font-weight: 700; text-transform: uppercase; line-height: 16.50px; letter-spacing: 0.28px; word-wrap: break-word">Archivos disponibles</div>
+                        <a href="{{ url_for('guardados') }}" style="color: #29394A; font-size: 11px; font-family: Montserrat; font-weight: 700; text-transform: uppercase; line-height: 16.50px; letter-spacing: 0.28px; word-wrap: break-word; text-decoration: none;">Bookmarks</a>
                     </div>
                     <div style="align-self: stretch; padding-left: 12px; padding-right: 12px; padding-top: 14px; padding-bottom: 14px; justify-content: flex-start; align-items: center; gap: 7px; display: flex; cursor: pointer;">
-                        <div style="color: #29394A; font-size: 11px; font-family: Montserrat; font-weight: 700; text-transform: uppercase; line-height: 16.50px; letter-spacing: 0.28px; word-wrap: break-word">Bookmarks</div>
-                    </div>
-                    <div style="align-self: stretch; padding-left: 12px; padding-right: 12px; padding-top: 14px; padding-bottom: 14px; justify-content: flex-start; align-items: center; gap: 7px; display: flex; cursor: pointer;">
-                        <div style="color: #29394A; font-size: 11px; font-family: Montserrat; font-weight: 700; text-transform: uppercase; line-height: 16.50px; letter-spacing: 0.28px; word-wrap: break-word">Cola de descarga</div>
+                        <a href="{{ url_for('descargas') }}" style="color: #29394A; font-size: 11px; font-family: Montserrat; font-weight: 700; text-transform: uppercase; line-height: 16.50px; letter-spacing: 0.28px; word-wrap: break-word; text-decoration: none;">Cola de descarga</a>
                     </div>
                 </div>
             </div>
