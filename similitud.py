@@ -3,10 +3,7 @@ import unicodedata
 
 
 def normalizar(texto):
-    """
-    Convierte el texto a minusculas,
-    elimina acentos y espacios innecesarios.
-    """
+    
     texto = texto.lower().strip()
 
     texto = unicodedata.normalize("NFD", texto)
@@ -19,12 +16,8 @@ def normalizar(texto):
     return texto
 
 
-def distancia_levenshtein(palabra1, palabra2):
-    """
-    Calcula las operaciones necesarias para
-    convertir una palabra en otra.
-    """
-
+def distancia_levenshtein(palabra1, palabra2):}
+    
     palabra1 = normalizar(palabra1)
     palabra2 = normalizar(palabra2)
 
@@ -57,11 +50,7 @@ def distancia_levenshtein(palabra1, palabra2):
 
 
 def calcular_similitud(palabra1, palabra2):
-    """
-    Calcula el porcentaje de similitud
-    entre dos palabras.
-    """
-
+    
     palabra1 = normalizar(palabra1)
     palabra2 = normalizar(palabra2)
 
@@ -78,10 +67,6 @@ def calcular_similitud(palabra1, palabra2):
 
 
 def evaluar_consulta(consulta, texto):
-    """
-    Compara las palabras de una consulta
-    con las palabras de un documento.
-    """
 
     palabras_consulta = normalizar(consulta).split()
     palabras_texto = normalizar(texto).split()
@@ -115,7 +100,6 @@ def evaluar_consulta(consulta, texto):
     return round(resultado, 2)
 
 
-# PRUEBAS DEL ALGORITMO
 if __name__ == "__main__":
 
     print("PRUEBA 1: DISTANCIA DE LEVENSHTEIN")
