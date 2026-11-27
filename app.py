@@ -57,10 +57,39 @@ def inicio():
         resultados=resultados
     )
 
+# MENU DE ARCHIVOS DISPONIBLES
 @app.route('/archivos_disponibles')
 def archivos_disponibles():
     """ Route to display the available files in the repository """
     return render_template("archivos_disponibles.html")
+
+@app.route('/autores_disponibles')
+def autores_disponibles():
+    """ Route to display files by author """
+    return render_template("autores_disponibles.html")
+
+@app.route('/anios_disponibles')
+def anios_disponibles():
+    """ Route to display files by year """
+    return render_template("anios_disponibles.html")
+
+# Pagina individual del autor
+@app.route('/autor')
+def autor():
+    """ Route to display files by author """
+    return render_template("autor_archivos.html")
+
+# Pagina individual del año
+@app.route('/anio')
+def anio():
+    """ Route to display files by year """
+    return render_template("anio_archivos.html")
+
+# Pagina individual del archivo
+@app.route('/detalles')
+def pdf_details():
+    """ Route to display PDF details """
+    return render_template("pdf_details.html")
 
 @app.route('/guardados')
 def guardados():
@@ -71,21 +100,6 @@ def guardados():
 def descargas():
     """ Route to display the queued downloads """
     return render_template("descargas.html")
-
-@app.route('/autor')
-def autor():
-    """ Route to display files by author """
-    return render_template("autor.html")
-
-@app.route('/anio')
-def anio():
-    """ Route to display files by year """
-    return render_template("anio.html")
-
-@app.route('/detalles')
-def pdf_details():
-    """ Route to display PDF details """
-    return render_template("pdf_details.html")
 
 #OJITO AQUÍ
 """CODIGO ANTERIOR DE LA APP, MODIFIQUE EL return render_template_string POR return render_template 

@@ -1,0 +1,58 @@
+PRAGMA foreign_keys = ON;
+
+CREATE TABLE AUTOR (
+    autor_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nombre TEXT NOT NULL
+);
+
+CREATE TABLE CARPETA (
+    carpeta_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nombre TEXT NOT NULL
+);
+
+CREATE TABLE URL (
+    url_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    fecha_registro TEXT NOT NULL,
+    url_pegado TEXT NOT NULL
+);
+
+CREATE TABLE ARCHIVO (
+    archivo_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    url_id INTEGER NOT NULL,
+    texto_enlace TEXT,
+    url_encontrado TEXT NOT NULL,
+    ruta_local TEXT,
+    nombre_original TEXT,
+    hash_sha256 TEXT UNIQUE,
+    titulo TEXT,
+    anio INTEGER,
+    FOREIGN KEY (url_id) REFERENCES URL(url_id)
+);
+
+CREATE TABLE ARCHIVO_AUTOR (
+    archivo_id INTEGER NOT NULL,
+    autor_id INTEGER NOT NULL,
+    PRIMARY KEY (archivo_id, autor_id),
+    FOREIGN KEY (archivo_id) REFERENCES ARCHIVO(archivo_id),
+    FOREIGN KEY (autor_id) REFERENCES AUTOR(autor_id)
+);
+
+CREATE TABLE PAGINAS (
+    pagina_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    archivo_id INTEGER NOT NULL,
+    numero_pagina INTEGER NOT NULL,
+    texto_original TEXT NOT NULL,
+    texto_normalizado TEXT NOT NULL,
+    FOREIGN KEY (archivo_id) REFERENCES ARCHIVO(archivo_id)
+);
+
+CREATE TABLE BOOKMARK (
+    bookmark_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    archivo_id INTEGER NOT NULL,
+    carpeta_id INTEGER NOT NULL,
+    FOREIGN KEY (archivo_id) REFERENCES ARCHIVO(archivo_id),
+    FOREIGN KEY (carpeta_id) REFERENCES CARPETA(carpeta_id),
+    UNIQUE (archivo_id, carpeta_id)
+);
+
+

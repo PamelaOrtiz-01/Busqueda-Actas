@@ -6,6 +6,8 @@
             <div style="align-self: stretch; min-height: 467.84px; background: #F7F8FA; flex-direction: column; justify-content: flex-start; align-items: center; display: flex">
                 <div style="width: 1180px; max-width: 100%; padding-top: 44px; padding-bottom: 44px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex; box-sizing: border-box;">
                     <div style="align-self: stretch; padding-bottom: 22px; border-bottom: 0.80px #D8E0E6 solid; justify-content: space-between; align-items: flex-end; display: inline-flex">
+                        
+                        <!-- NOMBRE DE LA PAGINA Y DESCRIPCION -->
                         <div style="width: 539.51px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
                             <div style="color: #E4810B; font-size: 10px; font-family: Montserrat; font-weight: 700; text-transform: uppercase; line-height: 15px; letter-spacing: 1.70px; word-wrap: break-word">Tu biblioteca</div>
                             <div style="width: 539.51px; height: 70px; padding-top: 7px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
@@ -15,6 +17,8 @@
                                 <div style="color: #667684; font-size: 12px; font-family: Montserrat; font-weight: 400; line-height: 20.40px; word-wrap: break-word">Organiza los documentos por materias, proyectos y temas usando carpetas y subcarpetas.</div>
                             </div>
                         </div>
+
+                        <!-- MENU DE ORDENAMIENTO -->
                         <div style="flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
                             <div style="align-self: stretch; align-self: stretch; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
                                 <div style="color: #667482; font-size: 9px; font-family: Montserrat; font-weight: 700; text-transform: uppercase; line-height: 13.50px; letter-spacing: 0.72px; word-wrap: break-word">Ordenar por</div>
@@ -38,68 +42,50 @@
                     <div style="align-self: stretch; padding-top: 34px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
                         <div style="width: 100%; display: flex; flex-direction: row; justify-content: flex-start; align-items: flex-start; gap: 36px; box-sizing: border-box;">
                             <div style="width: 265px; min-width: 265px; height: 410.40px; background: var(--Grays-White, white); box-shadow: 0px 5px 20px rgba(24, 49, 72, 0.08); border-top: 4px #004990 solid; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex; box-sizing: border-box;">
+                                
+                                <!-- MENU DE CARPETAS -->
                                 <div style="align-self: stretch; padding: 16px; border-bottom: 0.80px #DCE4E9 solid; justify-content: space-between; align-items: center; display: inline-flex">
                                     <div style="flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
                                         <div style="color: #213F5B; font-size: 11px; font-family: Montserrat; font-weight: 700; text-transform: uppercase; line-height: 16.50px; word-wrap: break-word">Mis carpetas</div>
                                     </div>
-                                    <div style="height: 24px; min-width: 24px; background: #EAF2F8; border-radius: 12px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
+                                    <div style="height: 24px; min-width: 24px; background: #EAF2F8; border-radius: 12px; display: flex; flex-direction: row; justify-content: flex-end; align-items: center">
                                         <div style="color: #004990; font-size: 9px; font-family: Montserrat; font-weight: 400; text-transform: uppercase; line-height: 13.50px; word-wrap: break-word">3</div>
                                     </div>
                                 </div>
-                                <div style="align-self: stretch; padding-top: 7px; padding-bottom: 7px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
-                                    <div style="align-self: stretch; padding-left: 15px; padding-right: 15px; padding-top: 11px; padding-bottom: 11px; background: #EDF4F8; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
-                                        <div style="align-self: stretch; height: 18px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
-                                            <div style="color: #E4810B; font-size: 12px; font-family: Montserrat; font-weight: 700; line-height: 18px; word-wrap: break-word">▣</div>
-                                        </div>
-                                        <div style="align-self: stretch; height: 15px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
-                                            <div style="color: #004990; font-size: 10px; font-family: Montserrat; font-weight: 700; line-height: 15px; word-wrap: break-word">Todos los guardados</div>
-                                        </div>
-                                        <div style="align-self: stretch; height: 13.50px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
-                                            <div style="color: #87949D; font-size: 9px; font-family: Montserrat; font-weight: 700; line-height: 13.50px; word-wrap: break-word">3</div>
-                                        </div>
+
+                                <!-- BOTONES DE LAS CARPETAS -->
+                                <div class="bookmark-folders">
+                                    <button type="button" class="bookmark-folder-button active" aria-pressed="true">
+                                        <div class="bookmark-folder-icon">▣</div>
+                                        <div class="bookmark-folder-name">Todos los guardados</div>
+                                        <div class="bookmark-folder-count">3</div>
+                                    </button>
+                                    <div class="bookmark-folder-group">
+                                        <button type="button" class="bookmark-folder-button" aria-pressed="false">
+                                            <div class="bookmark-folder-icon">▾</div>
+                                            <div class="bookmark-folder-name">Bases de Datos</div>
+                                            <div class="bookmark-folder-count">1</div>
+                                        </button>
+                                        <button type="button" class="bookmark-folder-button bookmark-folder-child" aria-pressed="false">
+                                            <div class="bookmark-folder-icon">⌑</div>
+                                            <div class="bookmark-folder-name">Backups</div>
+                                            <div class="bookmark-folder-count">1</div>
+                                        </button>
                                     </div>
-                                    <div style="align-self: stretch; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
-                                        <div style="align-self: stretch; padding-top: 11px; padding-bottom: 11px; padding-left: 16px; padding-right: 15px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
-                                            <div style="align-self: stretch; height: 18px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
-                                                <div style="color: #E4810B; font-size: 12px; font-family: Montserrat; font-weight: 400; line-height: 18px; word-wrap: break-word">▾</div>
-                                            </div>
-                                            <div style="align-self: stretch; height: 15px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
-                                                <div style="color: #506577; font-size: 10px; font-family: Montserrat; font-weight: 400; line-height: 15px; word-wrap: break-word">Bases de Datos</div>
-                                            </div>
-                                            <div style="align-self: stretch; height: 13.50px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
-                                                <div style="color: #87949D; font-size: 9px; font-family: Montserrat; font-weight: 400; line-height: 13.50px; word-wrap: break-word">1</div>
-                                            </div>
-                                        </div>
-                                        <div style="width: 225px; padding-top: 11px; padding-bottom: 11px; padding-left: 36px; padding-right: 15px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
-                                            <div style="align-self: stretch; height: 18px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
-                                                <div style="color: #E4810B; font-size: 12px; font-family: Montserrat; font-weight: 400; line-height: 18px; word-wrap: break-word">⌑</div>
-                                            </div>
-                                            <div style="align-self: stretch; height: 15px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
-                                                <div style="color: #506577; font-size: 10px; font-family: Montserrat; font-weight: 400; line-height: 15px; word-wrap: break-word">Backups</div>
-                                            </div>
-                                            <div style="align-self: stretch; height: 13.50px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
-                                                <div style="color: #87949D; font-size: 9px; font-family: Montserrat; font-weight: 400; line-height: 13.50px; word-wrap: break-word">1</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div style="width: 225px; padding-top: 11px; padding-bottom: 11px; padding-left: 16px; padding-right: 15px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
-                                        <div style="align-self: stretch; height: 18px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
-                                            <div style="color: #E4810B; font-size: 12px; font-family: Montserrat; font-weight: 400; line-height: 18px; word-wrap: break-word">⌑</div>
-                                        </div>
-                                        <div style="align-self: stretch; height: 15px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
-                                            <div style="color: #506577; font-size: 10px; font-family: Montserrat; font-weight: 400; line-height: 15px; word-wrap: break-word">Materia de prueba</div>
-                                        </div>
-                                        <div style="align-self: stretch; height: 13.50px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
-                                            <div style="color: #87949D; font-size: 9px; font-family: Montserrat; font-weight: 400; line-height: 13.50px; word-wrap: break-word">1</div>
-                                        </div>
-                                    </div>
+                                    <button type="button" class="bookmark-folder-button" aria-pressed="false">
+                                        <div class="bookmark-folder-icon">⌑</div>
+                                        <div class="bookmark-folder-name">Materia de prueba</div>
+                                        <div class="bookmark-folder-count">1</div>
+                                    </button>
                                 </div>
+
+                                <!-- CREAR CARPETAS -->
                                 <div style="align-self: stretch; padding: 16px; border-top: 0.80px #DCE4E9 solid; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
                                     <div style="flex: 1; min-width: 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex;">
                                         <div style="color: #42586A; font-size: 9px; font-family: Montserrat; font-weight: 700; text-transform: uppercase; line-height: 13.50px; letter-spacing: 0.72px; word-wrap: break-word">Nueva carpeta</div>
                                     </div>
-                                    <div style="align-self: stretch; align-self: stretch; padding: 10px; background: var(--Grays-White, white); overflow: hidden; outline: 0.80px #D4DDE3 solid; outline-offset: -0.80px; flex-direction: column; justify-content: center; align-items: flex-start; display: inline-flex">
-                                        <div style="align-self: stretch; color: rgba(52.01, 77, 97.99, 0.50); font-size: 10px; font-family: Montserrat; font-weight: 400; word-wrap: break-word">Ej. Bases de Datos</div>
+                                    <div style="align-self: stretch; align-self: stretch; padding: 10px; background: var(--Grays-White, white); overflow: hidden; outline: 0.80px #D4DDE3 solid; outline-offset: -0.80px; flex-direction: column; justify-content: center; align-items: flex-start; display: inline-flex; cursor: text;">
+                                        <input type="text" placeholder="Ej. Bases de Datos"style="width: 100%; border: none; outline: none; color: #344D61; font-size: 10px; font-family: Montserrat; font-weight: 400; background: transparent;">
                                     </div>
                                     <div style="align-self: stretch; align-self: stretch; position: relative; background: var(--Grays-White, white); overflow: hidden; outline: 0.80px #D4DDE3 solid; outline-offset: -0.80px">
                                         <div style="width: 151.40px; height: 13.60px; left: 14.80px; top: 10.80px; position: absolute; overflow: hidden; justify-content: flex-start; align-items: center; display: inline-flex">
@@ -111,15 +97,19 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div style="align-self: stretch; align-self: stretch; padding: 10px; background: #004990; flex-direction: column; justify-content: center; align-items: center; display: inline-flex">
-                                        <div style="text-align: center; color: var(--Grays-White, white); font-size: 9px; font-family: Montserrat; font-weight: 700; text-transform: uppercase; line-height: 13.50px; word-wrap: break-word">Crear carpeta</div>
+                                    <div style="align-self: stretch; align-self: stretch; padding: 10px; background: #004990; flex-direction: column; justify-content: center; align-items: center; display: inline-flex; cursor: pointer;">
+                                        <div style="text-align: center; color: var(--Grays-White, white); font-size: 9px; font-family: Montserrat; font-weight: 700; text-transform: uppercase; line-height: 13.50px; word-wrap: break-word; user-select: none; -webkit-user-select: none;">Crear carpeta</div>
                                     </div>
                                 </div>
                             </div>
+
+                            <!-- DISPLAY DE LOS ARCHIVOS DE LAS CARPETAS -->
                             <div style="align-self: stretch; flex: 1; min-width: 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
                                 <div style="align-self: stretch; padding-bottom: 15px; border-bottom: 0.80px #D8E0E5 solid; justify-content: space-between; align-items: flex-end; display: inline-flex">
                                     <div style="width: 221.79px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
                                         <div style="color: #E4810B; font-size: 8px; font-family: Montserrat; font-weight: 700; text-transform: uppercase; line-height: 12px; letter-spacing: 0.88px; word-wrap: break-word">Carpeta seleccionada</div>
+
+                                        <!-- NOMBRE DE LA CARPETA -->
                                         <div style="width: 221.79px; height: 40px; padding-top: 4px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
                                             <div style="color: #1D3F61; font-size: 24px; font-family: Libertinus Sans; font-weight: 700; line-height: 36px; word-wrap: break-word">Todos los guardados</div>
                                         </div>
@@ -128,6 +118,8 @@
                                         <div style="color: #75838D; font-size: 10px; font-family: Montserrat; font-weight: 400; line-height: 15px; word-wrap: break-word">3 libros</div>
                                     </div>
                                 </div>
+
+                                <!-- ARCHIVOS -->
                                 <div style="align-self: stretch; width: 100%; display: flex; flex-direction: row; justify-content: flex-start; align-items: flex-start; gap: 24px; box-sizing: border-box;">
                                     <div style="flex: 1; min-width: 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex;">
                                         <a href="{{ url_for('pdf_details', pdf_id=2) }}" style="align-self: stretch; flex-direction: column; justify-content: center; align-items: flex-start; display: flex; text-decoration: none; color: inherit;">

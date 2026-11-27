@@ -1,0 +1,242 @@
+{% extends "base.html" %}
+{% block title %}Guardados | Repositorio Digital{% endblock %}
+{% block body %}
+    <div style="width: 100%; min-height: 100vh; background: var(--Grays-White, white); display: flex; flex-direction: column; justify-content: flex-start; align-items: center;">
+        <div style="width: 100%; min-height: 688px; background: #F7F8FA; display: flex; flex-direction: column; justify-content: flex-start; align-items: center; box-sizing: border-box;">
+            <div style="align-self: stretch; min-height: 467.84px; background: #F7F8FA; flex-direction: column; justify-content: flex-start; align-items: center; display: flex">
+                <div style="width: 1180px; max-width: 100%; padding-top: 44px; padding-bottom: 44px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex; box-sizing: border-box;">
+                    <div style="align-self: stretch; padding-bottom: 22px; border-bottom: 0.80px #D8E0E6 solid; justify-content: space-between; align-items: flex-end; display: inline-flex">
+                        <div style="width: 539.51px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
+                            <div style="color: #E4810B; font-size: 10px; font-family: Montserrat; font-weight: 700; text-transform: uppercase; line-height: 15px; letter-spacing: 1.70px; word-wrap: break-word">Tu biblioteca</div>
+                            <div style="width: 539.51px; height: 70px; padding-top: 7px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
+                                <div style="color: #1D293D; font-size: 42px; font-family: Libertinus Sans; font-weight: 700; line-height: 63px; word-wrap: break-word">Consulta por año</div>
+                            </div>
+                            <div style="width: 539.51px; height: 29px; max-width: 660px; padding-top: 8px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
+                                <div style="color: #667684; font-size: 12px; font-family: Montserrat; font-weight: 400; line-height: 20.40px; word-wrap: break-word">Organiza los documentos por materias, proyectos y temas usando carpetas y subcarpetas.</div>
+                            </div>
+                        </div>
+                        <div style="flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
+                            <div style="align-self: stretch; align-self: stretch; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
+                                <div style="color: #667482; font-size: 9px; font-family: Montserrat; font-weight: 700; text-transform: uppercase; line-height: 13.50px; letter-spacing: 0.72px; word-wrap: break-word">Ordenar por</div>
+                            </div>
+                            <div style="width: 180px; height: 36px; position: relative; background: var(--Grays-White, white); overflow: hidden; outline: 0.80px #CDD7DE solid; outline-offset: -0.80px">
+                                <div style="width: 129.40px; height: 14.40px; left: 16.80px; top: 10.80px; position: absolute; overflow: hidden; justify-content: flex-start; align-items: center; display: inline-flex">
+                                    <div id="texto-orden" style="color: #29465F; font-size: 11px; font-family: Montserrat; font-weight: 700; letter-spacing: 0.72px; word-wrap: break-word">Más recientes</div>
+                                </div>
+                                <div style="width: 20px; height: 36px; right: 8px; top: 0; position: absolute; display: flex; justify-content: center; align-items: center; pointer-events: none;">
+                                    <span style="width: 7px; height: 7px; border-right: 1.5px solid #29465F; border-bottom: 1.5px solid #29465F; transform: rotate(45deg); margin-top: -4px;"></span>
+                                </div>
+                                <select id="orden-documentos" class="selector-orden" style="position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; z-index: 5;">
+                                    <option value="recientes">Más recientes</option>
+                                    <option value="antiguos">Más antiguos</option>
+                                    <option value="nombre_asc">Nombre (A-Z)</option>
+                                    <option value="nombre_desc">Nombre (Z-A)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="align-self: stretch; padding-top: 34px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
+                        <div style="width: 100%; display: flex; flex-direction: row; justify-content: flex-start; align-items: flex-start; gap: 36px; box-sizing: border-box;">
+                            <div style="width: 265px; min-width: 265px; height: 410.40px; background: var(--Grays-White, white); box-shadow: 0px 5px 20px rgba(24, 49, 72, 0.08); border-top: 4px #004990 solid; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex; box-sizing: border-box;">
+                                <div style="align-self: stretch; padding: 16px; border-bottom: 0.80px #DCE4E9 solid; justify-content: space-between; align-items: center; display: inline-flex">
+                                    <div style="flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
+                                        <div style="color: #213F5B; font-size: 11px; font-family: Montserrat; font-weight: 700; text-transform: uppercase; line-height: 16.50px; word-wrap: break-word">Mis carpetas</div>
+                                    </div>
+                                    <div style="height: 24px; min-width: 24px; background: #EAF2F8; border-radius: 12px; display: flex; flex-direction: row; justify-content: flex-end; align-items: center">
+                                        <div style="color: #004990; font-size: 9px; font-family: Montserrat; font-weight: 400; text-transform: uppercase; line-height: 13.50px; word-wrap: break-word">3</div>
+                                    </div>
+                                </div>
+                                <div style="align-self: stretch; padding-top: 7px; padding-bottom: 7px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
+                                    <div style="align-self: stretch; padding-left: 15px; padding-right: 15px; padding-top: 11px; padding-bottom: 11px; background: #EDF4F8; flex-direction: row; justify-content: flex-start; align-items: center; gap: 8px; display: flex">
+                                        <div style="align-self: stretch; height: 18px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
+                                            <div style="color: #E4810B; font-size: 12px; font-family: Montserrat; font-weight: 700; line-height: 18px; word-wrap: break-word">▣</div>
+                                        </div>
+                                        <div style="align-self: center; height: 15px; flex: 1; min-width: 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex; cursor: pointer;">
+                                            <div style="color: #004990; font-size: 10px; font-family: Montserrat; font-weight: 700; line-height: 15px; word-wrap: break-word">Todos los guardados</div>
+                                        </div>
+                                        <div style="height: 13.50px; margin-left: auto; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
+                                            <div style="color: #87949D; font-size: 9px; font-family: Montserrat; font-weight: 700; line-height: 13.50px; word-wrap: break-word">3</div>
+                                        </div>
+                                    </div>
+                                    <div style="align-self: stretch; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
+                                        <div style="align-self: stretch; padding-top: 11px; padding-bottom: 11px; padding-left: 16px; padding-right: 15px; flex-direction: row; justify-content: flex-start; align-items: center; gap: 8px; display: flex">
+                                            <div style="align-self: stretch; height: 18px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
+                                                <div style="color: #E4810B; font-size: 12px; font-family: Montserrat; font-weight: 400; line-height: 18px; word-wrap: break-word">▾</div>
+                                            </div>
+                                            <div style="align-self: center; height: 15px; flex: 1; min-width: 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex; cursor: pointer;">
+                                                <div style="color: #506577; font-size: 10px; font-family: Montserrat; font-weight: 400; line-height: 15px; word-wrap: break-word">Bases de Datos</div>
+                                            </div>
+                                            <div style="height: 13.50px; margin-left: auto; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
+                                                <div style="color: #87949D; font-size: 9px; font-family: Montserrat; font-weight: 400; line-height: 13.50px; word-wrap: break-word">1</div>
+                                            </div>
+                                        </div>
+                                        <div style="align-self: stretch; width: auto; box-sizing: border-box; padding-top: 11px; padding-bottom: 11px; padding-left: 36px; padding-right: 15px; flex-direction: row; justify-content: flex-start; align-items: center; gap: 8px; display: flex">
+                                            <div style="align-self: stretch; height: 18px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
+                                                <div style="color: #E4810B; font-size: 12px; font-family: Montserrat; font-weight: 400; line-height: 18px; word-wrap: break-word">⌑</div>
+                                            </div>
+                                            <div style="align-self: center; height: 15px; flex: 1; min-width: 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex; cursor: pointer;">
+                                                <div style="color: #506577; font-size: 10px; font-family: Montserrat; font-weight: 400; line-height: 15px; word-wrap: break-word">Backups</div>
+                                            </div>
+                                            <div style="height: 13.50px; margin-left: auto; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
+                                                <div style="color: #87949D; font-size: 9px; font-family: Montserrat; font-weight: 400; line-height: 13.50px; word-wrap: break-word">1</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="align-self: stretch; width: auto; box-sizing: border-box; padding-top: 11px; padding-bottom: 11px; padding-left: 16px; padding-right: 15px; flex-direction: row; justify-content: flex-start; align-items: center; gap: 8px; display: flex">
+                                        <div style="align-self: stretch; height: 18px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
+                                            <div style="color: #E4810B; font-size: 12px; font-family: Montserrat; font-weight: 400; line-height: 18px; word-wrap: break-word">⌑</div>
+                                        </div>
+                                        <div style="align-self: center; height: 15px; flex: 1; min-width: 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex; cursor: pointer;">
+                                            <div style="color: #506577; font-size: 10px; font-family: Montserrat; font-weight: 400; line-height: 15px; word-wrap: break-word">Materia de prueba</div>
+                                        </div>
+                                        <div style="height: 13.50px; margin-left: auto; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
+                                            <div style="color: #87949D; font-size: 9px; font-family: Montserrat; font-weight: 400; line-height: 13.50px; word-wrap: break-word">1</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="align-self: stretch; padding: 16px; border-top: 0.80px #DCE4E9 solid; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
+                                    <div style="flex: 1; min-width: 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex;">
+                                        <div style="color: #42586A; font-size: 9px; font-family: Montserrat; font-weight: 700; text-transform: uppercase; line-height: 13.50px; letter-spacing: 0.72px; word-wrap: break-word">Nueva carpeta</div>
+                                    </div>
+                                    <div style="align-self: stretch; align-self: stretch; padding: 10px; background: var(--Grays-White, white); overflow: hidden; outline: 0.80px #D4DDE3 solid; outline-offset: -0.80px; flex-direction: column; justify-content: center; align-items: flex-start; display: inline-flex; cursor: text;">
+                                        <div style="align-self: stretch; color: rgba(52.01, 77, 97.99, 0.50); font-size: 10px; font-family: Montserrat; font-weight: 400; word-wrap: break-word">Ej. Bases de Datos</div>
+                                    </div>
+                                    <div style="align-self: stretch; align-self: stretch; position: relative; background: var(--Grays-White, white); overflow: hidden; outline: 0.80px #D4DDE3 solid; outline-offset: -0.80px">
+                                        <div style="width: 151.40px; height: 13.60px; left: 14.80px; top: 10.80px; position: absolute; overflow: hidden; justify-content: flex-start; align-items: center; display: inline-flex">
+                                            <div style="color: #344D62; font-size: 10px; font-family: Montserrat; font-weight: 400; word-wrap: break-word">Carpeta principal</div>
+                                        </div>
+                                        <div style="width: 20px; height: 33.60px; left: 173.20px; top: 0.80px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
+                                            <div style="width: 10px; height: 6px; position: relative">
+                                                <div style="width: 8px; height: 4px; left: 1px; top: 1px; position: absolute; outline: 1.50px #344D62 solid; outline-offset: -0.75px"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="align-self: stretch; align-self: stretch; padding: 10px; background: #004990; flex-direction: column; justify-content: center; align-items: center; display: inline-flex; cursor: pointer;">
+                                        <div style="text-align: center; color: var(--Grays-White, white); font-size: 9px; font-family: Montserrat; font-weight: 700; text-transform: uppercase; line-height: 13.50px; word-wrap: break-word">Crear carpeta</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="align-self: stretch; flex: 1; min-width: 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
+                                <div style="align-self: stretch; padding-bottom: 15px; border-bottom: 0.80px #D8E0E5 solid; justify-content: space-between; align-items: flex-end; display: inline-flex">
+                                    <div style="width: 221.79px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
+                                        <div style="color: #E4810B; font-size: 8px; font-family: Montserrat; font-weight: 700; text-transform: uppercase; line-height: 12px; letter-spacing: 0.88px; word-wrap: break-word">Carpeta seleccionada</div>
+                                        <div style="width: 221.79px; height: 40px; padding-top: 4px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
+                                            <div style="color: #1D3F61; font-size: 24px; font-family: Libertinus Sans; font-weight: 700; line-height: 36px; word-wrap: break-word">Todos los guardados</div>
+                                        </div>
+                                    </div>
+                                    <div style="flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
+                                        <div style="color: #75838D; font-size: 10px; font-family: Montserrat; font-weight: 400; line-height: 15px; word-wrap: break-word">3 libros</div>
+                                    </div>
+                                </div>
+                                <div style="align-self: stretch; width: 100%; display: flex; flex-direction: row; justify-content: flex-start; align-items: flex-start; gap: 24px; box-sizing: border-box;">
+                                    <div style="flex: 1; min-width: 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex;">
+                                        <a href="{{ url_for('pdf_details', pdf_id=2) }}" style="align-self: stretch; flex-direction: column; justify-content: center; align-items: flex-start; display: flex; text-decoration: none; color: inherit;">
+                                            <div style="align-self: stretch; height: 369.33px; padding-left: 18px; padding-right: 18px; padding-top: 21px; padding-bottom: 21px; position: relative; background: linear-gradient(145deg, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0) 45%), linear-gradient(160deg, #B75C32 0%, #142B49 100%); box-shadow: 0px 8px 20px rgba(23, 47, 69, 0.16); overflow: hidden; flex-direction: column; justify-content: space-between; align-items: flex-start; display: flex">
+                                                <div style="width: 39px; height: 39px; border-radius: 19.50px; outline: 0.80px var(--Labels-Quaternary, rgba(255, 255, 255, 0.50)) solid; outline-offset: -0.80px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
+                                                    <div style="color: var(--Grays-White, white); font-size: 12px; font-family: Libertinus Sans; font-weight: 700; line-height: 18px; word-wrap: break-word">BD</div>
+                                                </div>
+                                                <div style="align-self: stretch; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
+                                                    <div style="align-self: stretch; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
+                                                        <div style="color: var(--Grays-White, white); font-size: 8px; font-family: Montserrat; font-weight: 600; text-transform: uppercase; line-height: 12px; letter-spacing: 0.96px; word-wrap: break-word">Repositorio Digital</div>
+                                                    </div>
+                                                    <div style="padding-top: 8px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
+                                                        <div style="width: 229px; color: var(--Grays-White, white); font-size: 22px; font-family: Libertinus Sans; font-weight: 700; line-height: 25.96px; word-wrap: break-word">Fundamentos de bases de datos</div>
+                                                    </div>
+                                                </div>
+                                                <div style="align-self: stretch; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
+                                                    <div style="color: var(--Grays-White, white); font-size: 7px; font-family: Montserrat; font-weight: 400; text-transform: uppercase; line-height: 10.50px; letter-spacing: 0.56px; word-wrap: break-word">Universidad de Sonora</div>
+                                                </div>
+                                                <div style="width: 100px; height: 100px; left: 217.80px; top: 251.40px; position: absolute; background: rgba(255, 255, 255, 0); box-shadow: 0px 0px 0px 44px rgba(255, 255, 255, 0.04), 0px 0px 0px 22px rgba(255, 255, 255, 0.05); border-radius: 50px; border: 0.80px rgba(255, 255, 255, 0.20) solid"></div>
+                                            </div>
+                                        </a>
+                                        <div style="align-self: stretch; padding-top: 12px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
+                                            <div style="color: #E4810B; font-size: 8px; font-family: Montserrat; font-weight: 700; text-transform: uppercase; line-height: 12px; letter-spacing: 0.80px; word-wrap: break-word">Bases de datos</div>
+                                            <div style="align-self: stretch; padding-top: 5px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
+                                                <div style="align-self: stretch; height: 20.25px; position: relative">
+                                                    <div style="width: 214.25px; height: 20.25px; left: 0px; top: 0px; position: absolute">
+                                                        <a href="{{ url_for('pdf_details', pdf_id=2) }}" style="left: 0px; top: -1.20px; position: absolute; color: #183F64; font-size: 15px; font-family: Libertinus Sans; font-weight: 700; line-height: 20.25px; word-wrap: break-word; cursor: pointer; text-decoration: none">Fundamentos de bases de datos</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div style="width: 289.80px; height: 19px; padding-top: 5px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
+                                                <div style="color: #71808C; font-size: 9px; font-family: Montserrat; font-weight: 400; line-height: 13.50px; word-wrap: break-word">Carlos Ramírez · 2024</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="flex: 1; min-width: 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex;">
+                                        <div style="align-self: stretch; flex-direction: column; justify-content: center; align-items: flex-start; display: flex">
+                                            <div style="align-self: stretch; height: 369.33px; padding-left: 18px; padding-right: 18px; padding-top: 21px; padding-bottom: 21px; position: relative; background: linear-gradient(145deg, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0) 45%), linear-gradient(160deg, #17658A 0%, #142B49 100%); box-shadow: 0px 8px 20px rgba(23, 47, 69, 0.16); overflow: hidden; flex-direction: column; justify-content: space-between; align-items: flex-start; display: flex">
+                                                <div style="width: 39px; height: 39px; border-radius: 19.50px; outline: 0.80px var(--Labels-Quaternary, rgba(255, 255, 255, 0.50)) solid; outline-offset: -0.80px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
+                                                    <div style="color: var(--Grays-White, white); font-size: 12px; font-family: Libertinus Sans; font-weight: 700; line-height: 18px; word-wrap: break-word">AS</div>
+                                                </div>
+                                                <div style="align-self: stretch; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
+                                                    <div style="align-self: stretch; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
+                                                        <div style="color: var(--Grays-White, white); font-size: 8px; font-family: Montserrat; font-weight: 600; text-transform: uppercase; line-height: 12px; letter-spacing: 0.96px; word-wrap: break-word">Repositorio Digital</div>
+                                                    </div>
+                                                    <div style="padding-top: 8px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
+                                                        <div style="width: 229px; color: var(--Grays-White, white); font-size: 22px; font-family: Libertinus Sans; font-weight: 700; line-height: 25.96px; word-wrap: break-word">Arquitectura de software moderna</div>
+                                                    </div>
+                                                </div>
+                                                <div style="align-self: stretch; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
+                                                    <div style="color: var(--Grays-White, white); font-size: 7px; font-family: Montserrat; font-weight: 400; text-transform: uppercase; line-height: 10.50px; letter-spacing: 0.56px; word-wrap: break-word">Universidad de Sonora</div>
+                                                </div>
+                                                <div style="width: 100px; height: 100px; left: 217.80px; top: 251.40px; position: absolute; background: rgba(255, 255, 255, 0); box-shadow: 0px 0px 0px 44px rgba(255, 255, 255, 0.04), 0px 0px 0px 22px rgba(255, 255, 255, 0.05); border-radius: 50px; border: 0.80px rgba(255, 255, 255, 0.20) solid"></div>
+                                            </div>
+                                        </div>
+                                        <div style="align-self: stretch; padding-top: 12px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
+                                            <div style="color: #E4810B; font-size: 8px; font-family: Montserrat; font-weight: 700; text-transform: uppercase; line-height: 12px; letter-spacing: 0.80px; word-wrap: break-word">Ingeniería de software</div>
+                                            <div style="align-self: stretch; padding-top: 5px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
+                                                <div style="align-self: stretch; height: 20.25px; position: relative">
+                                                    <div style="width: 236.07px; height: 20.25px; left: 0px; top: 0px; position: absolute">
+                                                        <div style="left: 0px; top: -1.20px; position: absolute; color: #183F64; font-size: 15px; font-family: Libertinus Sans; font-weight: 700; line-height: 20.25px; word-wrap: break-word">Arquitectura de software moderna</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div style="width: 289.80px; height: 19px; padding-top: 5px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
+                                                <div style="color: #71808C; font-size: 9px; font-family: Montserrat; font-weight: 400; line-height: 13.50px; word-wrap: break-word">Laura Mendoza · 2025</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="flex: 1; min-width: 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex;">
+                                        <div style="align-self: stretch; flex-direction: column; justify-content: center; align-items: flex-start; display: flex">
+                                            <div style="align-self: stretch; height: 369.33px; padding-left: 18px; padding-right: 18px; padding-top: 21px; padding-bottom: 21px; position: relative; background: linear-gradient(145deg, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0) 45%), linear-gradient(160deg, #17658A 0%, #142B49 100%); box-shadow: 0px 8px 20px rgba(23, 47, 69, 0.16); overflow: hidden; flex-direction: column; justify-content: space-between; align-items: flex-start; display: flex">
+                                                <div style="width: 39px; height: 39px; border-radius: 19.50px; outline: 0.80px var(--Labels-Quaternary, rgba(255, 255, 255, 0.50)) solid; outline-offset: -0.80px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
+                                                    <div style="color: var(--Grays-White, white); font-size: 12px; font-family: Libertinus Sans; font-weight: 700; line-height: 18px; word-wrap: break-word">AS</div>
+                                                </div>
+                                                <div style="align-self: stretch; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
+                                                    <div style="align-self: stretch; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
+                                                        <div style="color: var(--Grays-White, white); font-size: 8px; font-family: Montserrat; font-weight: 600; text-transform: uppercase; line-height: 12px; letter-spacing: 0.96px; word-wrap: break-word">Repositorio Digital</div>
+                                                    </div>
+                                                    <div style="padding-top: 8px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
+                                                        <div style="width: 229px; color: var(--Grays-White, white); font-size: 22px; font-family: Libertinus Sans; font-weight: 700; line-height: 25.96px; word-wrap: break-word">Arquitectura de software moderna</div>
+                                                    </div>
+                                                </div>
+                                                <div style="align-self: stretch; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
+                                                    <div style="color: var(--Grays-White, white); font-size: 7px; font-family: Montserrat; font-weight: 400; text-transform: uppercase; line-height: 10.50px; letter-spacing: 0.56px; word-wrap: break-word">Universidad de Sonora</div>
+                                                </div>
+                                                <div style="width: 100px; height: 100px; left: 217.80px; top: 251.40px; position: absolute; background: rgba(255, 255, 255, 0); box-shadow: 0px 0px 0px 44px rgba(255, 255, 255, 0.04), 0px 0px 0px 22px rgba(255, 255, 255, 0.05); border-radius: 50px; border: 0.80px rgba(255, 255, 255, 0.20) solid"></div>
+                                            </div>
+                                        </div>
+                                        <div style="align-self: stretch; padding-top: 12px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
+                                            <div style="color: #E4810B; font-size: 8px; font-family: Montserrat; font-weight: 700; text-transform: uppercase; line-height: 12px; letter-spacing: 0.80px; word-wrap: break-word">Ingeniería de software</div>
+                                            <div style="align-self: stretch; padding-top: 5px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
+                                                <div style="align-self: stretch; height: 20.25px; position: relative">
+                                                    <div style="width: 236.07px; height: 20.25px; left: 0px; top: 0px; position: absolute">
+                                                        <div style="left: 0px; top: -1.20px; position: absolute; color: #183F64; font-size: 15px; font-family: Libertinus Sans; font-weight: 700; line-height: 20.25px; word-wrap: break-word">Arquitectura de software moderna</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div style="width: 289.80px; height: 19px; padding-top: 5px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
+                                                <div style="color: #71808C; font-size: 9px; font-family: Montserrat; font-weight: 400; line-height: 13.50px; word-wrap: break-word">Laura Mendoza · 2025</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

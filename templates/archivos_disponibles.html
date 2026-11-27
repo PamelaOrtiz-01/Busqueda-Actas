@@ -3,6 +3,7 @@
 {% block body %}
     <div style="align-self: stretch; min-height: 496.13px; background: #F7F8FA; flex-direction: column; justify-content: flex-start; align-items: center; display: flex">
         <div class="contenedor-archivos" style="width: 1180px; padding-top: 44px; padding-bottom: 44px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
+            <!-- NOMBRE DE LA PAGINA, DESCRIPCION Y MENU DE ORDENAR -->
             <div style="align-self: stretch; padding-bottom: 22px; border-bottom: 0.80px #D8E0E6 solid; justify-content: space-between; align-items: flex-end; display: inline-flex">
                 <div style="width: 425.01px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
                     <div style="color: #E4810B; font-size: 10px; font-family: Montserrat; font-weight: 700; text-transform: uppercase; line-height: 15px; letter-spacing: 1.70px; word-wrap: break-word">REPOSITORIO digital</div>
@@ -17,14 +18,18 @@
                     <div style="align-self: stretch; align-self: stretch; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
                         <div style="color: #667482; font-size: 9px; font-family: Montserrat; font-weight: 700; text-transform: uppercase; line-height: 13.50px; letter-spacing: 0.72px; word-wrap: break-word">Ordenar por</div>
                     </div>
-                    <div style="width: 180px; height: 36px; position: relative; background: var(--Grays-White, white); overflow: hidden; outline: 0.80px #CDD7DE solid; outline-offset: -0.80px">
-                        <div style="width: 129.40px; height: 14.40px; left: 16.80px; top: 10.80px; position: absolute; overflow: hidden; justify-content: flex-start; align-items: center; display: inline-flex">
-                            <div id="texto-orden" style="color: #29465F; font-size: 11px; font-family: Montserrat; font-weight: 700; letter-spacing: 0.72px; word-wrap: break-word">Más recientes</div>
+                    
+                    <!-- MENU DE ORDENAR POR -->
+                    <div class="orden-contenedor">
+                        <div class="orden-texto">
+                            <div id="texto-orden">Más recientes</div>
                         </div>
-                        <div style="width: 20px; height: 36px; right: 8px; top: 0; position: absolute; display: flex; justify-content: center; align-items: center; pointer-events: none;">
-                            <span style="width: 7px; height: 7px; border-right: 1.5px solid #29465F; border-bottom: 1.5px solid #29465F; transform: rotate(45deg); margin-top: -4px;"></span>
+
+                        <div class="orden-flecha">
+                            <span></span>
                         </div>
-                        <select id="orden-documentos" class="selector-orden" style="position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; z-index: 5;">
+
+                        <select id="orden-documentos" class="selector-orden">
                             <option value="recientes">Más recientes</option>
                             <option value="antiguos">Más antiguos</option>
                             <option value="nombre_asc">Nombre (A-Z)</option>
@@ -33,6 +38,8 @@
                     </div>
                 </div>
             </div>
+
+            <!-- ARCHIVOS -->
             <div style="align-self: stretch; padding-top: 34px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
                 <div class="archivos-grid" style="align-self: stretch; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
                     <div style="align-self: stretch; align-self: stretch; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
@@ -447,27 +454,27 @@
             </div>
         </div>
     </div>
-    <div class="paginacion" style="align-self: stretch; height: 85px; justify-content: center; align-items: center; gap: 5px; display: inline-flex">
-        <div style="min-width: 36px; padding-left: 11px; padding-right: 11px; padding-top: 9px; padding-bottom: 9px; opacity: 0.45; background: var(--Grays-White, white); outline: 0.80px #CCD6DD solid; outline-offset: -0.80px; flex-direction: column; justify-content: center; align-items: center; display: inline-flex">
-            <div style="text-align: center; color: #31516D; font-size: 10px; font-family: Montserrat; font-weight: 700; line-height: 15px; word-wrap: break-word">Anterior</div>
+    
+    <!-- PAGINACION -->
+    <div class="paginacion">
+        <div class="paginacion-item deshabilitada">
+            <div>Anterior</div>
         </div>
-        <div style="min-width: 36px; padding-left: 11px; padding-right: 11px; padding-top: 9px; padding-bottom: 9px; background: #004990; outline: 0.80px #004990 solid; outline-offset: -0.80px; flex-direction: column; justify-content: center; align-items: center; display: inline-flex">
-            <div style="text-align: center; color: var(--Grays-White, white); font-size: 10px; font-family: Montserrat; font-weight: 700; line-height: 15px; word-wrap: break-word">1</div>
+        <div class="paginacion-item activa">
+            <div>1</div>
         </div>
-        <div style="min-width: 36px; padding-left: 11px; padding-right: 11px; padding-top: 9px; padding-bottom: 9px; background: var(--Grays-White, white); outline: 0.80px #CCD6DD solid; outline-offset: -0.80px; flex-direction: column; justify-content: center; align-items: center; display: inline-flex">
-            <div style="text-align: center; color: #31516D; font-size: 10px; font-family: Montserrat; font-weight: 700; line-height: 15px; word-wrap: break-word">2</div>
+        <div class="paginacion-item">
+            <div>2</div>
         </div>
-        <div style="min-width: 36px; padding-left: 11px; padding-right: 11px; padding-top: 9px; padding-bottom: 9px; background: var(--Grays-White, white); outline: 0.80px #CCD6DD solid; outline-offset: -0.80px; flex-direction: column; justify-content: center; align-items: center; display: inline-flex">
-            <div style="text-align: center; color: #31516D; font-size: 10px; font-family: Montserrat; font-weight: 700; line-height: 15px; word-wrap: break-word">3</div>
+        <div class="paginacion-item">
+            <div>3</div>
         </div>
-        <div style="flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
-            <div style="color: #263342; font-size: 16px; font-family: Montserrat; font-weight: 400; line-height: 24px; word-wrap: break-word">…</div>
+        <div class="paginacion-puntos">…</div>
+        <div class="paginacion-item">
+            <div>254</div>
         </div>
-        <div style="min-width: 36px; padding-left: 11px; padding-right: 11px; padding-top: 9px; padding-bottom: 9px; background: var(--Grays-White, white); outline: 0.80px #CCD6DD solid; outline-offset: -0.80px; flex-direction: column; justify-content: center; align-items: center; display: inline-flex">
-            <div style="text-align: center; color: #31516D; font-size: 10px; font-family: Montserrat; font-weight: 700; line-height: 15px; word-wrap: break-word">254</div>
-        </div>
-        <div style="min-width: 36px; padding-left: 11px; padding-right: 11px; padding-top: 9px; padding-bottom: 9px; background: var(--Grays-White, white); outline: 0.80px #CCD6DD solid; outline-offset: -0.80px; flex-direction: column; justify-content: center; align-items: center; display: inline-flex">
-            <div style="text-align: center; color: #31516D; font-size: 10px; font-family: Montserrat; font-weight: 700; line-height: 15px; word-wrap: break-word">Siguiente</div>
+        <div class="paginacion-item">
+            <div>Siguiente</div>
         </div>
     </div>
 {% endblock %}

@@ -8,6 +8,7 @@
 
 </head>
 <body>
+    <!-- LINKS INSTITUCIONALES -->
     <div style="align-self: stretch; background: var(--Window-Background, white); box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.06); flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
         <div style="align-self: stretch; background: #003F7D; border-bottom: 0.80px rgba(255, 255, 255, 0.12) solid; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
             <div style="align-self: stretch; flex-direction: column; justify-content: flex-start; align-items: center; display: flex">
@@ -26,6 +27,8 @@
                 </div>
             </div>
         </div>
+
+        <!-- LOGOS Y NOMBRE DE LA PAGINA -->
         <div style="align-self: stretch; flex-direction: column; justify-content: flex-start; align-items: center; display: flex">
             <div style="width: min(1180px, calc(100% - 40px)); margin: auto; display: flex; flex-direction: column;">
                 <div style="align-self: stretch; min-height: 104px; padding: 8px 0 2px; display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
@@ -43,11 +46,19 @@
                 <div style="align-self: stretch; height: 8px; position: relative"></div>
             </div>
         </div>
+
+        <!-- BARRA DE NAVEGACION -->
         <div style="align-self: stretch; background: var(--Window-Background, white); box-shadow: 0px 3px 10px rgba(28, 54, 79, 0.07); border-top: 0.80px #EDEDED solid; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
             <div style="align-self: stretch; flex-direction: column; justify-content: flex-start; align-items: center; display: flex">
                 <div style="width: 1180px; height: 44.50px; justify-content: flex-end; align-items: flex-start; display: inline-flex">
-                    <div style="align-self: stretch; padding-left: 12px; padding-right: 12px; padding-top: 14px; padding-bottom: 14px; justify-content: flex-start; align-items: center; gap: 7px; display: flex; cursor: pointer;">
-                        <a href="{{ url_for('archivos_disponibles') }}" style="color: #29394A; font-size: 11px; font-family: Montserrat; font-weight: 700; text-transform: uppercase; line-height: 16.50px; letter-spacing: 0.28px; word-wrap: break-word; text-decoration: none;">Archivos disponibles</a>
+                    <div class="menu-archivos" style="align-self: stretch; padding-left: 12px; padding-right: 12px; padding-top: 14px; padding-bottom: 14px; justify-content: flex-start; align-items: center; gap: 7px; display: flex; cursor: pointer; position: relative;">
+                        <div style="color: #29394A; font-size: 11px; font-family: Montserrat; font-weight: 700; text-transform: uppercase; line-height: 16.50px; letter-spacing: 0.28px; word-wrap: break-word; cursor: pointer; text-decoration: none;">Archivos disponibles</div>
+                        <span class="flecha-archivos" style="width: 7px; height: 7px; border-right: 1.5px solid #29465F; border-bottom: 1.5px solid #29465F; transform: rotate(45deg); margin-top: -4px;"></span>
+                        <div class="submenu-archivos">
+                            <a href="{{ url_for('archivos_disponibles') }}">Todos los archivos</a>
+                            <a href="{{ url_for('autores_disponibles') }}">Por autor</a>
+                            <a href="{{ url_for('anios_disponibles') }}">Por año</a>
+                        </div>
                     </div>
                     <div style="align-self: stretch; padding-left: 12px; padding-right: 12px; padding-top: 14px; padding-bottom: 14px; justify-content: flex-start; align-items: center; gap: 7px; display: flex; cursor: pointer;">
                         <a href="{{ url_for('guardados') }}" style="color: #29394A; font-size: 11px; font-family: Montserrat; font-weight: 700; text-transform: uppercase; line-height: 16.50px; letter-spacing: 0.28px; word-wrap: break-word; text-decoration: none;">Bookmarks</a>
