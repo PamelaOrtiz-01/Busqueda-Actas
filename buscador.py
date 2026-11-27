@@ -4,13 +4,10 @@ import os
 
 from similitud import normalizar, evaluar_consulta
 
-
-# Obtener la ubicación de la carpeta del proyecto
 CARPETA_PROYECTO = os.path.dirname(os.path.abspath(__file__))
 
 ARCHIVO_INDICE = os.path.join(CARPETA_PROYECTO, "indice.json")
 
-# Porcentaje minimo para considerar una coincidencia
 UMBRAL_SIMILITUD = 75.0
 
 
@@ -40,13 +37,10 @@ def buscar_documentos(consulta, indice):
 
         contenido_normalizado = normalizar(contenido)
 
-        # Primero se comprueba si existe una coincidencia exacta
         if consulta_normalizada in contenido_normalizado:
             resultados.append(documento["nombre"])
             continue
 
-        # Si no existe coincidencia exacta,
-        # se utiliza el algoritmo Levenshtein
         puntuacion = evaluar_consulta(
             consulta,
             contenido
