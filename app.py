@@ -82,10 +82,10 @@ def anio():
     """ Route to display files by year """
     return render_template("anio.html")
 
-@app.route('/pdf_detalles')
+@app.route('/detalles')
 def pdf_details():
     """ Route to display PDF details """
-    return render_template("pdf_info.html")
+    return render_template("pdf_details.html")
 
 #OJITO AQUÍ
 """CODIGO ANTERIOR DE LA APP, MODIFIQUE EL return render_template_string POR return render_template 
