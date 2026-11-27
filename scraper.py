@@ -10,16 +10,10 @@ CARPETA_PDF = "pdfs"
 
 
 def calcular_hash(contenido):
-    """
-    Calcula el hash SHA-256 del contenido de un PDF.
-    """
     return hashlib.sha256(contenido).hexdigest()
 
 
 def buscar_pdfs(url):
-    """
-    Busca enlaces a documentos PDF dentro de una pagina web.
-    """
 
     try:
         respuesta = requests.get(url, timeout=15)
@@ -47,10 +41,6 @@ def buscar_pdfs(url):
 
 
 def descargar_pdfs(enlaces):
-    """
-    Descarga documentos PDF y evita duplicados
-    mediante la comparacion de hashes SHA-256.
-    """
 
     os.makedirs(CARPETA_PDF, exist_ok=True)
 
@@ -99,7 +89,6 @@ def descargar_pdfs(enlaces):
 
             ruta = os.path.join(CARPETA_PDF, nombre)
 
-            # Evitar sobrescribir archivos con el mismo nombre
             if os.path.exists(ruta):
 
                 nombre_base, extension = os.path.splitext(nombre)
