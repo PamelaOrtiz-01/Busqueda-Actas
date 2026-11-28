@@ -16,7 +16,7 @@ def normalizar(texto):
     return texto
 
 
-def distancia_levenshtein(palabra1, palabra2):}
+def distancia_levenshtein(palabra1, palabra2):
     
     palabra1 = normalizar(palabra1)
     palabra2 = normalizar(palabra2)

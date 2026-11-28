@@ -78,6 +78,123 @@ def retrieve_data_with_query(conn, query: str) -> list:
 
 # AQUI VAN LAS OTRAS PETICIONES
 
+# ARCHIVOS DISPONIBLES
+def contar_total_archivos (conn) -> int:
+    """ Retrieve the number of files in the repository """
+    cur = conn.cursor()
+    cur.execute(f"SELECT COUNT(archivo_id) FROM ARCHIVO")
+    rows = cur.fetchone()
+    return rows[0]
+
+def ver_archivos_disponibles (conn) -> list:
+    query_vad = """
+    SELECT
+        ARCHIVO.archivo_id,
+        ARCHIVO.titulo,
+        AUTOR.nombre,
+        FECHA.fecha_publicacion,
+    FROM ARCHIVO    
+    LEFT JOIN ARCHIVO_AUTOR ON ARCHIVO.archivo_id = ARCHIVO_AUTOR.archivo_id
+    LEFT JOIN AUTOR ON ARCHIVO_AUTOR.autor_id = AUTOR.autor_id
+    INNER JOIN FECHA ON ARCHIVO.fecha_id = FECHA.fecha_id
+    ORDER BY ARCHIVO.titulo;
+    """
+    return retrieve_data_with_query(conn, query_vad)
+
+# POR AUTOR
+def contar_total_autores (conn) -> int:
+    """ Retrieve the number of authors in the repository """
+    cur = conn.cursor()
+    cur.execute(f"SELECT COUNT(autor_id) FROM AUTOR")
+    rows = cur.fetchone()
+    return rows[0]
+
+def listar_autor_numero_archivos(conn) -> list:
+    """Retrieve the author and the number of files to their name """
+    query_launa = """
+    SELECT
+        AUTOR.autor_id,
+        AUTOR.nombre,    
+        COUNT (ARCHIVO.archivo_id)
+    FROM AUTOR
+    LEFT JOIN ARCHIVO_AUTOR ON AUTOR.autor_id = ARCHIVO_AUTOR.autor_id
+    LEFT JOIN ARCHIVO ON ARCHIVO_AUTOR.archivo_id = ARCHIVO.archivo_id
+    GROUP BY AUTOR.autor_id, AUTOR.nombre
+    ORDER BY AUTOR.nombre
+    """
+    return retrieve_data_with_query(conn, query_launa)
+
+def ver_archivos_por_autor(conn, autor_id) -> list:
+    query_vapau = """
+    SELECT
+        ARCHIVO.archivo_id,
+        ARCHIVO.titulo,
+        AUTOR.nombre,
+        FECHA.fecha_publicacion,
+    FROM AUTOR    
+    LEFT JOIN ARCHIVO_AUTOR ON AUTOR.autor_id = ARCHIVO_AUTOR.autor_id
+    LEFT JOIN ARCHIVO ON ARCHIVO_AUTOR.archivo_id = ARCHIVO.archivo_id
+    INNER JOIN FECHA ON ARCHIVO.fecha_id = FECHA.fecha_id
+    WHERE AUTOR.autor_id = ?
+    ORDER BY ARCHIVO.titulo;
+    """
+    return retrieve_data_with_query(conn, query_vapau, (autor_id,))
+
+# POR AÑO
+def listar_anio_numero_archivos(conn) -> list:
+    query_lanna = """
+    SELECT
+        FECHA.fecha_id
+        FECHA.fecha_publicacion,    
+        COUNT (ARCHIVO.archivo_id)
+    FROM FECHA
+    LEFT JOIN ARCHIVO ON FECHA.fecha_id = ARCHIVO.fecha_id
+    GROUP BY FECHA.fecha_id, FECHA.fecha_publicacion
+    ORDER BY FECHA.fecha_publicacion;
+    """
+    return retrieve_data_with_query(conn, query_lanna)
+
+def ver_archivos_por_anio(conn, fecha_id) -> list:
+    query_vapan = """
+    SELECT
+        ARCHIVO.archivo_id,
+        ARCHIVO.titulo,
+        AUTOR.nombre,
+        FECHA.fecha_publicacion,
+    FROM FECHA
+    INNER JOIN ARCHIVO ON FECHA.fecha_id = ARCHIVO.fecha_id
+    LEFT JOIN ARCHIVO_AUTOR ON ARCHIVO.archivo_id = ARCHIVO_AUTOR.archivo_id
+    LEFT JOIN AUTOR ON ARCHIVO_AUTOR.autor_id = AUTOR.autor_id
+    WHERE FECHA.fecha_id = ?
+    ORDER BY ARCHIVO.titulo;
+    """
+    return retrieve_data_with_query(conn, query_vapan, (fecha_id,))
+
+# DETALLES DEL ARCHIVO
+def ver_detalles_archivo(conn, archivo_id) -> list:
+    query_vda = """
+    SELECT
+        ARCHIVO.archivo_id,
+        ARCHIVO.titulo,
+        AUTOR.autor_id,
+        AUTOR.nombre,
+        FECHA.fecha_id,
+        FECHA.fecha_publicacion,
+        URL.url_id,
+        URL.fecha_registro,
+        URL.url_pegado
+    FROM ARCHIVO
+    LEFT JOIN ARCHIVO_AUTOR ON ARCHIVO.archivo_id = ARCHIVO_AUTOR.archivo_id
+    LEFT JOIN AUTOR ON ARCHIVO_AUTOR.autor_id = AUTOR.autor_id
+    INNER JOIN FECHA ON ARCHIVO.fecha_id = FECHA.fecha_id
+    INNER JOIN URL ON ARCHIVO.url_id = URL.url_id
+    WHERE ARCHIVO.archivo_id = ?;
+    """
+    return retrieve_data_with_query(conn, query_vda, (archivo_id,))
+
+# BOOKMARKS
+
+
 
 def close_database(conn):
     """ Close the database connection """
