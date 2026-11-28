@@ -193,7 +193,79 @@ def ver_detalles_archivo(conn, archivo_id) -> list:
     return retrieve_data_with_query(conn, query_vda, (archivo_id,))
 
 # BOOKMARKS
+def contar_total_carpetas (conn) -> int:
+    """ Retrieve the number of bookmark folders in the repository """
+    cur = conn.cursor()
+    cur.execute(f"SELECT COUNT(carpeta_id) FROM CARPETA")
+    rows = cur.fetchone()
+    return rows[0]
 
+def listar_carpeta_numero_archivos(conn) -> list:
+    query_lcna = """
+    SELECT
+        CARPETA.carpeta_id
+        CARPETA.nombre,    
+        COUNT (ARCHIVO.archivo_id)
+    FROM CARPETA
+    LEFT JOIN BOOKMARK ON CARPETA.carpeta_id = BOOKMARK.carpeta_id
+    LEFT JOIN ARCHIVO ON BOOKMARK.archivo_id = ARCHIVO.archivo_id
+    GROUP BY CARPETA.carpeta_id, CARPETA.nombre
+    ORDER BY CARPETA.carpeta_id;
+    """
+    return retrieve_data_with_query(conn, query_lcna)
+
+def archivos_guardados_en_carpetas(conn) -> list:
+    query_agec = """
+    SELECT
+        CARPETA.carpeta_id,
+        CARPETA.nombre,
+        ARCHIVO.archivo_id,
+        ARCHIVO.titulo,
+        AUTOR.nombre,
+        FECHA.fecha_publicacion
+    FROM BOOKMARK
+    INNER JOIN CARPETA ON BOOKMARK.carpeta_id = CARPETA.carpeta_id
+    INNER JOIN ARCHIVO ON BOOKMARK.archivo_id = ARCHIVO.archivo_id
+    LEFT JOIN ARCHIVO_AUTOR ON ARCHIVO.archivo_id = ARCHIVO_AUTOR.archivo_id
+    LEFT JOIN AUTOR ON ARCHIVO_AUTOR.autor_id = AUTOR.autor_id
+    INNER JOIN FECHA ON ARCHIVO.fecha_id = FECHA.fecha_id
+    ORDER BY CARPETA.nombre, ARCHIVO.titulo;
+    """
+    return retrieve_data_with_query(conn, query_agec)
+
+def ver_archivos_por_carpeta(conn, carpeta_id) -> list:
+    query_vapc = """
+    SELECT
+        ARCHIVO.archivo_id,
+        ARCHIVO.titulo,
+        AUTOR.nombre,
+        FECHA.fecha_publicacion
+    FROM BOOKMARK
+    INNER JOIN ARCHIVO ON BOOKMARK.archivo_id = ARCHIVO.archivo_id
+    LEFT JOIN ARCHIVO_AUTOR ON ARCHIVO.archivo_id = ARCHIVO_AUTOR.archivo_id
+    LEFT JOIN AUTOR ON ARCHIVO_AUTOR.autor_id = AUTOR.autor_id
+    INNER JOIN FECHA ON ARCHIVO.fecha_id = FECHA.fecha_id
+    WHERE BOOKMARK.carpeta_id = ?
+    ORDER BY ARCHIVO.titulo;
+    """
+    return retrieve_data_with_query(conn, query_vapc, (carpeta_id,))
+
+# DESCARGAS
+def ver_archivos_descarga(conn) -> list:
+    query_vad = """
+    SELECT
+        ARCHIVO.archivo_id,
+        ARCHIVO.titulo,
+        AUTOR.nombre,
+        FECHA.fecha_publicacion
+    FROM DESCARGA
+    INNER JOIN ARCHIVO ON DESCARGA.archivo_id = ARCHIVO.archivo_id
+    LEFT JOIN ARCHIVO_AUTOR ON ARCHIVO.archivo_id = ARCHIVO_AUTOR.archivo_id
+    LEFT JOIN AUTOR ON ARCHIVO_AUTOR.autor_id = AUTOR.autor_id
+    INNER JOIN FECHA ON ARCHIVO.fecha_id = FECHA.fecha_id
+    ORDER BY ARCHIVO.titulo;
+    """
+    return retrieve_data_with_query(conn, query_vad)
 
 
 def close_database(conn):

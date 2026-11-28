@@ -18,7 +18,7 @@ CREATE TABLE CARPETA (
 CREATE TABLE URL (
     url_id INTEGER PRIMARY KEY AUTOINCREMENT,
     fecha_registro TEXT NOT NULL,
-    url_pegado TEXT NOT NULL
+    url_pegado TEXT NOT NULL UNIQUE
 );
 
 CREATE TABLE ARCHIVO (
@@ -62,4 +62,8 @@ CREATE TABLE BOOKMARK (
     UNIQUE (archivo_id, carpeta_id)
 );
 
-
+CREATE TABLE DESCARGA (
+    descarga_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    archivo_id INTEGER NOT NULL UNIQUE,
+    FOREIGN KEY (archivo_id) REFERENCES ARCHIVO(archivo_id),
+);
